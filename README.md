@@ -1,2 +1,1 @@
-# localrepo
-it's gonna be long way
+This is my local repo
