@@ -1,16 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google</title>
 </head>
+
 <body>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            padding: 30px;
+            color: #333;
+        }
+
+        /* Headings */
+        h1 {
+            color: #1a73e8;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        /* Links */
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #1a73e8;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background-color: #1557b0;
+        }
+
+        /* Lists */
+        ol,
+        ul {
+            margin: 15px 0 20px 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        /* Table */
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        th {
+            background-color: #1a73e8;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e8f0fe;
+        }
+    </style>
     <h1>your favorite website</h1>
-    <a href="https://google.com" target="_blank">google</a>
+    <a href="https://google.com" target="_blank">parivahan</a>
     <a href="https://facebook.com" target="_blank">facebook</a>
     <a href="https://twitter.com" target="_blank">twitter</a>
     <a href="https://linkedin.com" target="_blank">linkedin</a>
+    <h1>your favorite website list</h1>
+    <ol>
+        <li>google</li>
+        <li>facebook</li>
+        <li>twitter</li>
+        <li>linkedin</li>
+    </ol>
+    <ul>
+        <li>google</li>
+        <li>facebook</li>
+        <li>twitter</li>
+        <li>linkedin</li>
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>company</th>
+                <th>owner</th>
+                <th>invested</th>
 
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>google</td>
+                <td>larry page</td>
+                <td>$100 million</td>
+            </tr>
+            <tr>
+                <td>facebook</td>
+                <td>mark zuckerberg</td>
+                <td>$50 million</td>
+            </tr>
+            <tr>
+                <td colspan="2"> total invested</td>
+                <td>$150 million</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
+
 </html>

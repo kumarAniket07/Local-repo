@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f0f0f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .form-card {
+      background: #ffffff;
+      border: 1px solid #e2e0f0;
+      border-radius: 16px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 580px;
+      box-shadow: 0 4px 24px rgba(83, 74, 183, 0.08);
+    }
+
+    .form-header {
+      margin-bottom: 2rem;
+    }
+
+    .form-header h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1a1a2e;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .form-header h1 .icon {
+      width: 36px;
+      height: 36px;
+      background: #eeecfd;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .form-header p {
+      font-size: 14px;
+      color: #6b6b8a;
+      margin-top: 6px;
+      margin-left: 46px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 1.1rem;
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #4a4a6a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 10px 13px;
+      font-size: 14px;
+      border: 1px solid #dddcee;
+      border-radius: 10px;
+      background: #f8f8fc;
+      color: #1a1a2e;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+      font-family: inherit;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: #7f77dd;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(127, 119, 221, 0.15);
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #b0afc8;
+    }
+
+    .field input[type="color"] {
+      padding: 4px 6px;
+      height: 42px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 96px;
+      line-height: 1.6;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 14px;
+      color: #1a1a2e;
+      cursor: pointer;
+      padding: 8px 16px;
+      border: 1px solid #dddcee;
+      border-radius: 99px;
+      transition: all 0.15s;
+      user-select: none;
+    }
+
+    .radio-label:hover {
+      border-color: #7f77dd;
+      background: #f3f2fd;
+      color: #534ab7;
+    }
+
+    .radio-label input[type="radio"] {
+      accent-color: #534ab7;
+      width: 14px;
+      height: 14px;
+    }
+
+    .radio-label:has(input:checked) {
+      border-color: #7f77dd;
+      background: #eeecfd;
+      color: #534ab7;
+      font-weight: 500;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #ededf5;
+      margin: 1.5rem 0;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      flex: 1;
+      padding: 11px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 10px;
+      border: none;
+      background: #534ab7;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: #3c3489;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .btn-secondary {
+      padding: 11px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 10px;
+      border: 1px solid #dddcee;
+      background: transparent;
+      color: #6b6b8a;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      font-family: inherit;
+    }
+
+    .btn-secondary:hover {
+      background: #f3f2fd;
+      color: #534ab7;
+      border-color: #b0acdf;
+    }
+
+    @media (max-width: 520px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .form-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="form-card">
+    <div class="form-header">
+      <h1>
+        <span class="icon">✉️</span>
+        Get in touch
+      </h1>
+      <p>Fill out the form below and we'll get back to you shortly.</p>
+    </div>
+
+    <form action="/submit.php">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="name">👤 Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith">
+        </div>
+        <div class="field">
+          <label for="email">📧 Email</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="ph">📞 Phone</label>
+          <input type="tel" id="ph" name="phone" placeholder="+91 98765 43210">
+        </div>
+        <div class="field">
+          <label for="date">📅 Date</label>
+          <input type="date" id="date" name="date">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">💬 Message</label>
+        <textarea id="message" name="message" placeholder="Tell us how we can help…"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="color">🎨 Favourite color</label>
+          <input type="color" id="color" name="color" value="#534ab7">
+        </div>
+        <div class="field">
+          <label>🧑 Gender</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="gender" value="male"><span>Male</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="gender" value="female"><span>Female</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="gender" value="other"><span>Other</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="btn-row">
+        <button type="submit" class="btn-primary">➤ Send message</button>
+        <button type="reset" class="btn-secondary">Reset</button>
+      </div>
+
+    </form>
+  </div>
+  
+
+</body>
+</html> 
